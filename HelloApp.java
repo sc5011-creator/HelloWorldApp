@@ -1,12 +1,23 @@
 public class HelloApp {
     public static void main(String[] args) {
 
-        if (args.length > 0) {
-            String names = String.join(", ", args);
-            System.out.println("Hello, " + names + "!");
+        String result;
+
+        if (args.length == 0) {
+            result = "World";
         } else {
-            System.out.println("Hello, World!");
+            StringBuilder names = new StringBuilder();
+
+            for (String name : args) {
+                if (names.length() > 0) {
+                    names.append(", ");
+                }
+                names.append(name);
+            }
+
+            result = names.toString();
         }
 
+        System.out.println("Hello, " + result + "!");
     }
 }
